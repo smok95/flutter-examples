@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "254500766509",
+    "firebase_url": "https://imguitest-a0c77.firebaseio.com",
+    "project_id": "imguitest-a0c77",
+    "storage_bucket": "imguitest-a0c77.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:254500766509:android:61b54cdb86c810acee89a4",
+        "android_client_info": {
+          "package_name": "com.smok95.jktest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "254500766509-0fii01iehcun4vq8kn5aaefqk1aemq89.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.smok95.jktest",
+            "certificate_hash": "076a91520d853d483e53e27c6fae7ba31ffbc2fc"
+          }
+        },
+        {
+          "client_id": "254500766509-g4sqbn0me89t3jtll3i5nre1b8vbm9ej.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBepEfoj8nmPntSYsU8kh0kAdfQnagScIw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "254500766509-g4sqbn0me89t3jtll3i5nre1b8vbm9ej.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
