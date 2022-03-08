@@ -53,9 +53,7 @@ https://firebase.flutter.dev/docs/cli
 
   > flutter pub add firebase_messaging
 
-- 
-
-- > 
+  
 
 - firebase_messaging 패키지 추가
 
@@ -63,19 +61,64 @@ https://firebase.flutter.dev/docs/cli
 
 
 
-#### 수동설치 (기존 프로젝트인 경우엔 수동으로 해야되나??)
+#### ~~수동설치 (기존 프로젝트인 경우엔 수동으로 해야되나??)~~
 
-​	https://firebase.flutter.dev/docs/manual-installation
+​	~~https://firebase.flutter.dev/docs/manual-installation~~
 
-- firebase console에서 **google-services.json** 다운로드 후 **android/app**폴더에 복사
+- ~~firebase console에서 **google-services.json** 다운로드 후 **android/app**폴더에 복사~~
 
-- google-services플러그인 설정
+- ~~google-services플러그인 설정~~
 
-  - *android/build.gradle*  **buildscript > dependencies** 에 추가
+  - ~~*android/build.gradle*  **buildscript > dependencies** 에 추가~~
 
-    > classpath 'com.google.gms:google-services:4.3.8'
+    > ~~classpath 'com.google.gms:google-services:4.3.8'~~
 
-  - *app/build.gradle* 에 추가
+  - ~~*app/build.gradle* 에 추가~~
 
-    > apply plugin: 'com.google.gms.google-services'
+    > ~~apply plugin: 'com.google.gms.google-services'~~
 
+
+
+### local notification 설정
+
+- flutter_local_notifications 추가
+
+  > flutter pub add flutter_local_notifications
+
+
+
+- AndroidNotificationChannel 생성
+
+  소스에서 AndroidNotificationChannel 부분 참고
+
+  ```dart
+  const AndroidNotificationChannel channel = AndroidNotificationChannel(
+    'high_importance_channel', // id
+    'High Importance Notifications', // title
+    'This channel is used for important notifications.', // description
+    importance: Importance.max,
+  );
+  ```
+
+  ```dart
+  late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
+  
+  // Create the channel on the device
+    flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+  
+    await flutterLocalNotificationsPlugin
+        .resolvePlatformSpecificImplementation<
+            AndroidFlutterLocalNotificationsPlugin>()
+        ?.createNotificationChannel(channel);
+  ```
+
+- AndroidManifest.xml 수정
+
+  ```xml
+  <!-- application 태그안에 추가 -->
+  <meta-data
+    android:name="com.google.firebase.messaging.default_notification_channel_id"
+    android:value="high_importance_channel" />
+  ```
+
+  
