@@ -27,6 +27,9 @@ void main() async {
           AndroidFlutterLocalNotificationsPlugin>()
       ?.createNotificationChannel(channel);
 
+  // 토픽 구독 설정
+  await FirebaseMessaging.instance.subscribeToTopic('fcm_test');
+
   runApp(const MyApp());
 }
 
