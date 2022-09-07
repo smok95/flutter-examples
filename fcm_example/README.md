@@ -29,6 +29,8 @@ https://firebase.flutter.dev/docs/cli
 - flutterfire 초기화
 
   > flutterfire configure
+  
+  현재 앱과 연결(?)할 Firebase project 선택
 
 - 초기화 코드 작성
 
