@@ -22,10 +22,24 @@ void main() async {
   // Create the channel on the device
   flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
-  await flutterLocalNotificationsPlugin
-      .resolvePlatformSpecificImplementation<
-          AndroidFlutterLocalNotificationsPlugin>()
-      ?.createNotificationChannel(channel);
+  // 안드로이드 알림 아이콘
+  const AndroidInitializationSettings initSettingsAndroid =
+      AndroidInitializationSettings('app_icon');
+
+  final initSettings = InitializationSettings(android: initSettingsAndroid);
+
+  flutterLocalNotificationsPlugin.initialize(initSettings);
+
+  final aosLocalNotiPlugin =
+      flutterLocalNotificationsPlugin.resolvePlatformSpecificImplementation<
+          AndroidFlutterLocalNotificationsPlugin>();
+
+  if (aosLocalNotiPlugin != null) {
+    await aosLocalNotiPlugin.createNotificationChannel(channel);
+
+    // Requesting permissions on Android 13 or higher
+    await aosLocalNotiPlugin.requestPermission();
+  }
 
   // 토픽 구독 설정
   await FirebaseMessaging.instance.subscribeToTopic('fcm_test');
