@@ -122,5 +122,9 @@ https://firebase.flutter.dev/docs/cli
     android:name="com.google.firebase.messaging.default_notification_channel_id"
     android:value="high_importance_channel" />
   ```
+  
+  ### iOS
+  https://velog.io/@leedool3003/Flutter-FCM-Firebase-Cloud-Messagin-%EC%97%B0%EB%8F%99
+  
 
   
